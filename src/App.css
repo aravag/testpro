@@ -203,7 +203,6 @@ h1 {
 .btnsContainer .overlay,
 .hidden,
 .text span,
-.arrow,
 .progressText span {
   opacity: 0;
 }
