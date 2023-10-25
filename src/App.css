@@ -196,7 +196,7 @@ h1 {
 .absBtn .btnInner:before,
 .rowFlexBtns .btnInner:before,
 .rotateScreen,
-.btnsWrapper::-webkit-scrollbar {
+.btnsContainer::-webkit-scrollbar {
   display: none;
 }
 
@@ -519,6 +519,8 @@ h1 {
 .btnsContainer {
   gap: 0.75rem;
   overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .btnsWrapper {
@@ -526,8 +528,6 @@ h1 {
   max-height: 100%;
   max-width: min(580px, 50dvw);
   overflow-y: hidden;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 }
 
 .arrow {
