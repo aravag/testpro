@@ -506,7 +506,8 @@ h1 {
 
 .text,
 .btnChooseChar,
-.rotateText {
+.rotateText,
+.startSceneText {
   font-size: 1rem;
 }
 
