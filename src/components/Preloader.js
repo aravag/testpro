@@ -1,10 +1,10 @@
 import React from "react";
 
-function Preloader() {
+function Preloader({ progress }) {
     return (
         <div className="preloader">
             <div className="progressBar">
-                <div className="progress"></div>
+                <div className="progress" style={{ width: `${progress}%` }}></div>
             </div>
             <div className="progressText">
                 <span>Отрисовываем сцены</span>

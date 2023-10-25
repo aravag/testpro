@@ -14,13 +14,15 @@ function QuestWindow({ onClose }) {
     const [isStartSceneClosed, setStartSceneClosed] = useState(false);
     const [selectedCharacterIndex, setSelectedCharacterIndex] = useState(null);
     const [preloadedImages, setPreloadedImages] = useState({});
+    const [loadingProgress, setLoadingProgress] = useState(0);
 
     useEffect(() => {
-        preloadImages(imagePathsToPreload, (images) => {
+        preloadImages(imagePathsToPreload, (images, progress) => {
             setPreloadedImages(images);
-            setTimeout(() => {
+            setLoadingProgress(progress);
+            if (progress === 100) {
                 setIsPreloading(false);
-            }, 3000);
+            }
         });
     }, []);
 
@@ -61,7 +63,7 @@ function QuestWindow({ onClose }) {
             </div>
             {isHelpPopupOpen && <HelpPopup onClose={closeHelpPopup} preloadedImages={preloadedImages} />}
             {isPreloading ? (
-                <Preloader />
+                <Preloader progress={loadingProgress} />
             ) : (
                 isStartSceneClosed ? (
                     isCharacterSelected ? (
