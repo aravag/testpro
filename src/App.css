@@ -532,7 +532,7 @@ h1 {
 
 .btnsWrapper {
   margin: 6rem max(calc(100dvw / 2 - 680px), 2rem) 2rem 0;
-  max-height: 100%;
+  max-height: calc(100% - (var(--text-container-height) + var(--actions-mb)) - 6rem);
   max-width: min(580px, 50dvw);
   overflow-y: hidden;
 }
