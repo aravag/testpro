@@ -1,38 +1,839 @@
-.App {
-  text-align: center;
+:root {
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --dark-background: rgba(0, 0, 0, 0.60);
+  --light-background: rgba(255, 255, 255, 0.24);
+  --light-yellow: #FFC900;
+  --linear-btn: linear-gradient(0deg, #266EE0 0.01%, #3A9EED 40.01%, #AEDDFF 100%);
+  --linear-btn-inner: linear-gradient(0deg, #3B86E9 2%, #5EBCF6 39.93%, #A9E3FF 100%);
+  --action-gradient: radial-gradient(506.87% 50% at 50% 100%, #0087F0 0%, #0058C2 100%);
+  --border-color: #3BB0FF;
+  --btn-height: max(2.875rem, min(12dvh, 3.25rem));
+  --text-container-height: max(7.5rem, min(30dvh, 10.5rem));
+  --actions-mb: max(1.75rem, min(7dvh, 4rem));
+  --btns-bottom: calc(0px - var(--btn-height) / 2 + 12px);
+  --title-width: max(130px, min(40dvh, 170px));
+  --char-height: max(calc(100dvw / 3), 80dvh);
+  --rowFlex-btns-width: max(3rem, min(12dvw, 7.5rem));
 }
 
-.App-logo {
-  height: 40vmin;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+}
+
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.questWindow img,
+.hidden,
+.text {
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container,
+.questWindow,
+.rotateScreen {
+  height: 100dvh;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.questWindow,
+.rotateScreen {
+  width: 100dvw;
+}
+
+.questBackground,
+.questBackground img,
+.charInner img,
+.charInner,
+.overlay,
+.chooseCharInner,
+.btnInner,
+.startInner,
+.actionImage img,
+.bus img,
+.helpPopupOverlay,
+.btnInner:before,
+.preloader,
+.progress,
+.textInner,
+.btnsContainer,
+.scene,
+.startSceneContainer,
+.startSceneCloseInner {
+  height: 100%;
+}
+
+.questBackground,
+.questBackground img,
+.overlay,
+.actions,
+.textContainer,
+.textInner,
+.chooseCharInner,
+.btnInner,
+.startInner,
+.rowFlexBtns .btnInner,
+.absBtn .btnInner,
+.actionImage,
+.helpPopup,
+.helpPopupOverlay,
+.btnsWrapper,
+.preloader,
+.btn,
+.startQuest,
+.arrow,
+.actionImage img,
+.startSceneContainer,
+.startSceneCloseInner {
+  width: 100%;
+}
+
+.container,
+.startInner,
+.charInner,
+.textContainer,
+.actionImage,
+.closeInner,
+.helpInner,
+.closeHelpInner,
+.title,
+.helpPopupOverlay,
+.rowFlexBtns .btnInner,
+.absBtn .btnInner,
+.progressText,
+.rowFlexBtns,
+.preloader,
+.startSceneContainer,
+.startSceneCloseInner {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.container,
+.questControls,
+.btnInner,
+.startInner,
+.actionImage,
+.closeInner,
+.helpInner,
+.closeHelpInner,
+.title,
+.chooseCharInner,
+.helpPopupOverlay,
+.preloader,
+.startSceneContainer,
+.startSceneCloseInner {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.container,
+.actions,
+.textInner,
+.btnsContainer,
+.preloader {
+  -webkit-box-orient: vertical;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+
+.actions,
+.btnsContainer {
+  -ms-align-items: flex-end;
+  -webkit-align-items: flex-end;
+  align-items: flex-end;
+}
+
+.container,
+.questControls,
+.closeInner,
+.helpInner,
+.closeHelpInner,
+.characters,
+.charInner,
+.actions,
+.textInner,
+.btnsContainer,
+.btnInner,
+.startInner,
+.title,
+.chooseCharInner,
+.progressText,
+.dots,
+.preloader,
+.helpPopupOverlay,
+.actionImage,
+.scene,
+.startSceneContainer,
+.helpPopup,
+.startSceneInner,
+.startSceneCloseInner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.absBtn .btnInner:before,
+.rowFlexBtns .btnInner:before,
+.rotateScreen,
+.btnsWrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.btnsContainer .overlay,
+.hidden,
+.text span,
+.arrow,
+.progressText span {
+  opacity: 0;
+}
+
+.title,
+.characters,
+.btnChooseChar,
+.absBtn,
+.rowFlexBtns,
+.startSceneClose {
+  left: 50%;
+}
+
+.characters {
+  top: 50%;
+}
+
+.questWindow,
+.rotateScreen,
+.arrow.arrowUp,
+.helpPopupOverlay,
+.overlay,
+.startSceneContainer {
+  top: 0;
+}
+
+.questWindow,
+.rotateScreen,
+.helpPopupOverlay,
+.overlay,
+.startSceneContainer {
+  left: 0;
+}
+
+.textContainer,
+.char,
+.btn,
+.startQuest,
+.chooseCharInner,
+.actions,
+.btnsWrapper,
+.progressText,
+.progress,
+.helpPopup,
+.startSceneContainer,
+.startSceneInner {
+  position: relative;
+}
+
+.questBackground,
+.questControls,
+.characters,
+.overlay,
+.currentChar img,
+.title,
+.btnChooseChar,
+.btn:after,
+.chooseCharInner:after,
+.startQuest:after,
+.actionImage,
+.rowFlexBtns,
+.closeHelp,
+.helpPopupOverlay,
+.rotateScreen,
+.questWindow,
+.preloader,
+.progressText span,
+.arrow,
+.startSceneClose {
+  position: absolute;
+}
+
+.questBackground,
+.actionImage {
+  z-index: -1;
+}
+
+.questWindow {
+  z-index: 99000;
+  overflow: hidden;
+  user-select: none;
+  background: url('../public/images/back.png') no-repeat center center / cover;
+}
+
+.questBackground img {
+  object-fit: cover;
+  object-position: center;
+  transition: 0.3s filter ease;
+}
+
+.startQuest,
+.absBtn,
+.rowFlexBtns .btn {
+  width: unset !important;
+}
+
+.rowFlexBtns .btnInner,
+.absBtn .btnInner,
+.startInner,
+.textInner,
+.btnChooseChar,
+.rotateText {
+  text-align: center;
+}
+
+.closeQuest,
+.helpQuest,
+.closeHelp {
+  padding: 0.375rem;
+  background: var(--linear-btn);
+  z-index: 1000;
+}
+
+.popupOverlay,
+.closeQuest,
+.helpQuest,
+.closeHelp,
+.char,
+.btn,
+.startQuest,
+.helpPopupOverlay,
+.startSceneClose {
+  cursor: pointer;
+}
+
+.questControls {
+  right: 2rem;
+  top: 2rem;
+  gap: 1.75rem;
+}
+
+.closeInner,
+.helpInner,
+.closeHelpInner,
+.closeQuest,
+.helpQuest,
+.closeHelp {
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+}
+
+.closeInner,
+.helpInner,
+.closeHelpInner {
+  padding: 0.375rem;
+  border: 2px solid var(--border-color);
+  background: var(--action-gradient);
+  width: 2rem;
+  height: 2rem;
+}
+
+.btnInner,
+.startInner,
+.title,
+.text,
+.btnChooseChar,
+.helpPopup,
+.startSceneContent,
+.startSceneCloseInner {
+  color: var(--color-white);
+}
+
+.closeInner img,
+.closeHelpInner img {
+  height: 0.75rem;
+  width: 0.75rem;
+}
+
+.helpInner img {
+  height: 1rem;
+  width: 1rem;
+}
+
+.characters {
+  gap: 2.25rem;
+  height: 76%;
+  width: 100%;
+  max-width: 960px;
+  padding: 0 20px;
+}
+
+.characters {
+  transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+}
+
+.char {
+  min-width: calc(50% - 2.25rem / 2);
+  transition: 0.3s all ease;
+  border-style: solid;
+  border-width: 26px 16px 20px;
+  border-image: url(../public/images/chooseCharBack.svg) 26 13 20 15 fill;
+  -webkit-border-image: url(../public/images/chooseCharBack.svg) 26 13 20 15 fill;
+}
+
+.charInner {
+  border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  padding: 6dvh;
+}
+
+.overlay,
+.helpPopup,
+.helpPopupOverlay,
+.arrow,
+.btnsContainer,
+.btn,
+.characters,
+.currentChar,
+.title,
+.questWindow,
+.preloader {
+  transition: 0.3s opacity ease;
+}
+
+.helpPopupOverlay,
+.overlay,
+.questControls {
+  z-index: 1003;
+}
+  
+  
+.overlay {
+  background: var(--color-black);
+}
+
+.currentChar img {
+  bottom: calc(0px - var(--char-height) + 80dvh);
+  left: 10%;
+  height: var(--char-height);
+}
+
+.actions,
+.arrow.arrowDown {
+  bottom: 0;
+}
+
+.actions {
+  margin-bottom: var(--actions-mb);
+  justify-content: flex-end;
+  -ms-flex-pack: end;
+  -webkit-box-pack: end;
+  max-height: 100%;
+}
+
+.textContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex !important;
+  height: var(--text-container-height);
+}
+
+.textInner {
+  max-width: 960px;
+  margin: 0 2rem;
+  padding: min(4dvh, 2rem) min(4dvh, 2rem) min(5dvh, 3rem);
+}
+
+.textInner,
+.helpPopup,
+.startSceneInner {
+  border-width: 1.5rem 1rem;
+  border-style: solid;
+  border-color: transparent;
+  border-image: url(../public/images/border.svg) 27 14 24 16 fill;
+  -webkit-border-image: url(../public/images/border.svg) 27 14 24 16 fill;
+}
+
+.title {
+  height: 3.25rem;
+  width: var(--title-width);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.875rem;
+  letter-spacing: -0.025rem;
+  top: -1.625rem;
+  background: url(../public/images/title.svg) center center / contain no-repeat;
+  padding: 1rem;
+}
+
+.title,
+.btnChooseChar,
+.absBtn,
+.rowFlexBtns,
+.startSceneClose {
+  transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+}
+
+.text,
+.btnChooseChar,
+.rotateText {
+  font-size: 1rem;
+}
+
+.text {
+  font-weight: 600;
+  line-height: 1.22;
+  letter-spacing: -0.0275rem;
+}
+
+.btnsContainer,
+.btnsWrapper,
+.rowFlexBtns {
+  z-index: 10;
+}
+
+.btnsContainer {
+  gap: 0.75rem;
+  overflow-y: auto;
+}
+
+.btnsWrapper {
+  margin: 6rem max(calc(100dvw / 2 - 680px), 2rem) 2rem 0;
+  max-height: 100%;
+  max-width: min(580px, 50dvw);
+  overflow-y: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.arrow {
+  height: 1rem;
+  z-index: 11;
+  pointer-events: none;
+}
+
+.arrow.arrowUp {
+  background: linear-gradient(180deg, red, transparent);
+}
+
+.arrow.arrowDown {
+  background: linear-gradient(0deg, red, transparent);
+}
+
+.btn,
+.startQuest,
+.startSceneClose {
+  padding: 2.5px;
+  background: var(--linear-btn);
+  min-height: var(--btn-height);
+  height: var(--btn-height);
+  min-width: 10rem;
+  overflow: hidden;
+  border: none;
+}
+
+.btn,
+.startQuest,
+.btnChooseChar,
+.chooseCharInner,
+.btnInner,
+.startInner,
+.startSceneClose,
+.startSceneCloseInner {
+  border-radius: 99px;
+  -moz-border-radius: 99px;
+  -webkit-border-radius: 99px;
+}
+
+.btn .btnInner,
+.startInner,
+.btnChooseChar,
+.startSceneCloseInner {
+  text-shadow: 0px 1px 1px rgba(1, 0, 52, 0.24);
+}
+
+.btnChooseChar {
+  background: var(--linear-btn);
+  font-weight: 600;
+  line-height: 1.375rem;
+  letter-spacing: -0.02rem;
+  bottom: -2rem;
+  white-space: nowrap;
+  padding: 2.5px;
+  height: var(--btn-height);
+}
+
+.char:hover {
+  transform: scale(1.01);
+  -moz-transform: scale(1.01);
+  -webkit-transform: scale(1.01);
+}
+
+.btnInner,
+.startInner,
+.chooseCharInner,
+.startSceneCloseInner {
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.025rem;
+  gap: 0.5rem;
+  padding: 0 1.25rem;
+  background-image: url(../public/images/blink.svg), var(--linear-btn-inner);
+  background-repeat: no-repeat, no-repeat;
+  background-position: top 2px left 10px, top left;
+  background-size: max(70px, min(20dvh, 90px)), cover;
+  background-blend-mode: screen;
+  -webkit-background-blend-mode: screen;
+}
+
+.absBtn,
+.rowFlexBtns {
+  bottom: var(--btns-bottom);
+}
+
+.startSceneClose {
+  bottom: calc(var(--btns-bottom) - 1.5rem);
+}
+
+.absBtn {
+  position: absolute !important;
+  z-index: 10 !important;
+}
+
+.rowFlexBtns {
+  -ms-flex-direction: row;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  padding: 0;
+  margin: 0;
+  height: unset;
+}
+
+.rowFlexBtns .btn {
+  min-width: var(--rowFlex-btns-width);
+}
+
+.btnInner:before {
+  content: '';
+  background: url(../public/images/icon.svg) no-repeat;
+  min-width: 2rem;
+  background-position: center;
+  background-size: contain;
+}
+
+.actionImage {
+  top: 1.25rem;
+  height: calc(100% - calc(var(--text-container-height) + var(--actions-mb)));
+}
+
+.actionImage img {
+  max-width: 1160px;
+  object-fit: contain;
+}
+
+.rotateScreen {
+  z-index: 100000;
+  background: var(--color-white);
+}
+
+.rotateImg {
+  height: 50px;
+  width: 100px;
+  border: 3px solid var(--color-black);
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  animation: rotate 1.5s ease-in-out infinite alternate;
+}
+
+@media screen and (orientation: portrait) {
+  .rotateScreen {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-orient: vertical;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    gap: 40px;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+  }
+
+  75% {
+    transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+  }
+
+  100% {
+    transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+  }
+}
+
+.startSceneTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.4px;
+  margin-bottom: 1rem;
+}
+
+.startSceneInner,
+.helpPopup {
+  max-width: 960px;
+  margin: 0 1.25rem;
+}
+
+.helpPopup {
+  cursor: default;
+  z-index: 10000;
+}
+
+.startSceneInner,
+.helpPopup {
+  max-height: 50dvh;
+}
+
+.startSceneContent,
+.helpPopContent {
+  padding: 2rem 3rem;
+}
+
+.helpPopContent,
+.startSceneContent {
+  text-align: center;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.3;
+  overflow: hidden auto;
+}
+
+.helpPopupOverlay {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.closeHelp {
+  right: -2.25rem;
+  top: -2.25rem;
+}
+
+.progressBar {
+  width: 50%;
+  height: 1rem;
+  border: 1px solid var(--border-color);
+  background: #0058C2;
+}
+
+.preloader {
+  background: var(--color-white);
+  z-index: 1002;
+}
+
+.progress {
+  width: 0px;
+  animation: progress 3s forwards ease-in-out;
+  background: var(--linear-btn);
+}
+
+.progressText {
+  font-size: 0.875rem;
+  margin-top: 0.75rem;
+}
+
+.progressText span {
+  animation: textChange 3.3s 0s linear infinite;
+  white-space: nowrap;
+}
+
+.progressText span:nth-child(2) {
+  animation-delay: 1.65s;
+}
+
+@keyframes textChange {
+  0% {
+    opacity: 1;
+  }
+
+  49% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes progress {
+  100% {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 960px) {
+
+  .text,
+  .title,
+  .btnInner,
+  .chooseCharInner,
+  .startSceneCloseInner {
+    font-size: min(max(3.5dvh, 0.75rem), 1rem);
+  }
+
+  .questControls {
+    right: 1.5rem;
+    top: 1.5rem;
+  }
+
+  .btnsWrapper {
+    margin: 5.5rem max(calc(100dvw / 2 - 680px), 2rem) 1.75rem 0;
   }
 }
