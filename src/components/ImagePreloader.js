@@ -35,12 +35,14 @@ export const imagePathsToPreload = {
     background27d: './images/back27d.png',
     background28: './images/back28.png',
     background29: './images/back29.png',
+    char1: './images/char1.svg',
     char11: './images/char1.1.svg',
     char12: './images/char1.2.svg',
     char13: './images/char1.3.svg',
     char14: './images/char1.4.svg',
     char15: './images/char1.5.svg',
     char16: './images/char1.6.svg',
+    char2: './images/char2.svg',
     char21: './images/char2.1.svg',
     char22: './images/char2.2.svg',
     char23: './images/char2.3.svg',
@@ -55,7 +57,9 @@ export const imagePathsToPreload = {
     actionImage6: './images/action6.svg',
     actionImage7: './images/action7.svg',
     actionImage8: './images/action8.svg',
-    actionImage9: './images/action9.svg'
+    actionImage9: './images/action9.svg',
+    close: './images/action9.svg',
+    help: './images/action9.svg'
 };
 
 export const preloadImages = (imagePathsToPreload, callback) => {

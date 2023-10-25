@@ -46,12 +46,12 @@ function QuestWindow({ onClose }) {
             <div className="questControls">
                 <div className="helpQuest" onClick={openHelpPopup}>
                     <div className="helpInner">
-                        <img src="./images/help.svg" alt="help" />
+                        <img src={preloadedImages.help.src} alt="help" />
                     </div>
                 </div>
                 <div className="closeQuest">
                     <div className="closeInner" onClick={onClose}>
-                        <img src="./images/close.svg" alt="close" />
+                        <img src={preloadedImages.close.src} alt="close" />
                     </div>
                 </div>
             </div>
@@ -63,7 +63,7 @@ function QuestWindow({ onClose }) {
                     isCharacterSelected ? (
                         <Scene selectedCharacterIndex={selectedCharacterIndex} preloadedImages={preloadedImages} />
                     ) : (
-                        <Characters onSelectCharacter={onCharacterSelect} />
+                        <Characters onSelectCharacter={onCharacterSelect} preloadedImages={preloadedImages}/>
                     )
                 ) : (
                     <StartScene onClick={closeStartScene} />
