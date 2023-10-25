@@ -55,7 +55,7 @@ function QuestWindow({ onClose }) {
                     </div>
                 </div>
             </div>
-            {isHelpPopupOpen && <HelpPopup onClose={closeHelpPopup} />}
+            {isHelpPopupOpen && <HelpPopup onClose={closeHelpPopup} preloadedImages={preloadedImages} />}
             {isPreloading ? (
                 <Preloader />
             ) : (
@@ -63,7 +63,7 @@ function QuestWindow({ onClose }) {
                     isCharacterSelected ? (
                         <Scene selectedCharacterIndex={selectedCharacterIndex} preloadedImages={preloadedImages} />
                     ) : (
-                        <Characters onSelectCharacter={onCharacterSelect} preloadedImages={preloadedImages}/>
+                        <Characters onSelectCharacter={onCharacterSelect} preloadedImages={preloadedImages} />
                     )
                 ) : (
                     <StartScene onClick={closeStartScene} />

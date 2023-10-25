@@ -1,6 +1,6 @@
 import React from "react";
 
-function HelpPopup({ onClose }) {
+function HelpPopup({ onClose, preloadedImages }) {
     const handleCloseClick = () => {
         onClose();
     };
@@ -21,7 +21,7 @@ function HelpPopup({ onClose }) {
                 </div>
                 <div className="closeHelp" onClick={handleCloseClick}>
                     <div className="closeHelpInner">
-                        <img src="./images/close.svg" alt="close" />
+                        <img src={preloadedImages.close.src} alt="close" />
                     </div>
                 </div>
             </div>
