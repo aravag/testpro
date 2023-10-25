@@ -524,7 +524,7 @@ h1 {
 .btnChooseChar,
 .rotateText,
 .startSceneText {
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .startSceneText {
@@ -793,13 +793,9 @@ h1 {
   max-height: 50dvh;
 }
 
-.startSceneContent,
-.helpPopContent {
-  padding: 2rem 3rem;
-}
-
 .helpPopContent,
 .startSceneContent {
+  padding: 2rem 3rem;
   text-align: center;
   font-weight: 600;
   font-size: 1rem;
@@ -855,7 +851,7 @@ h1 {
   .startSceneCloseInner,
   .startSceneText,
   .helpPopContent {
-    font-size: 12px!important;
+    font-size: 0.75rem!important;
   }
 
   .questControls {
