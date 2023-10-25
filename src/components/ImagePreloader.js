@@ -57,9 +57,7 @@ export const imagePathsToPreload = {
     actionImage6: './images/action6.svg',
     actionImage7: './images/action7.svg',
     actionImage8: './images/action8.svg',
-    actionImage9: './images/action9.svg',
-    close: './images/action9.svg',
-    help: './images/action9.svg'
+    actionImage9: './images/action9.svg'
 };
 
 export const preloadImages = (imagePathsToPreload, callback) => {
