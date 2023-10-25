@@ -610,7 +610,7 @@ h1 {
   letter-spacing: -0.025rem;
   gap: 0.5rem;
   padding: 0 1.25rem;
-  background-image: url(../public/images/blink.svg), var(--linear-btn-inner);
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='88' height='10' viewBox='0 0 88 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath style='mix-blend-mode:screen' fill-rule='evenodd' clip-rule='evenodd' d='M8.59691 9.06291C4.4884 9.59061 0.590589 8.5352 0.695936 6.52993C0.695936 4.52465 5.01512 1.78059 8.91294 1.5695C12.284 1.46396 14.1803 3.04708 14.1803 5.05235C14.1803 6.95209 12.6001 8.64074 8.59691 9.06291ZM48.5231 8.5352C32.6158 8.95737 24.5041 8.5352 19.8689 7.79642C14.9176 6.95209 15.4443 2.94154 19.0261 2.09721C28.9287 -0.33023 87.5013 -1.17456 87.9227 3.8914C88.1334 6.00222 78.7575 7.69088 48.5231 8.64074V8.5352Z' fill='url(%23paint0_radial_79_5400)'/%3e%3cdefs%3e%3cradialGradient id='paint0_radial_79_5400' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='translate(35.1442 -14.2616) scale(86.7 86.8601)'%3e%3cstop stop-color='%237BC3ED'/%3e%3cstop offset='0.98' stop-color='%23080800'/%3e%3c/radialGradient%3e%3c/defs%3e%3c/svg%3e"), var(--linear-btn-inner);
   background-repeat: no-repeat, no-repeat;
   background-position: top 2px left 10px, top left;
   background-size: max(70px, min(20dvh, 90px)), cover;
@@ -647,7 +647,8 @@ h1 {
 
 .btnInner:before {
   content: '';
-  background: url(../public/images/icon.svg) no-repeat;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M4 15.25C4 20.6406 9.39062 25 16 25C17.7812 25 19.4219 24.7188 20.9219 24.2031C21.4375 24.5781 22.375 25.1406 23.4531 25.6094C24.5781 26.125 25.9375 26.5 27.25 26.5C27.5781 26.5 27.8594 26.3594 27.9531 26.0781C28.0938 25.7969 28 25.4688 27.8125 25.2344C27.7656 25.2344 27.7656 25.1875 27.7188 25.1406C27.6719 25.0938 27.5781 25 27.4844 24.9062C27.2969 24.6719 27.0625 24.2969 26.7812 23.875C26.3125 23.125 25.8906 22.0938 25.7969 20.9219C27.2031 19.3281 28 17.4062 28 15.25C28 9.90625 22.6562 5.5 16 5.5C9.39062 5.5 4 9.90625 4 15.25Z' fill='white'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
   min-width: 2rem;
   background-position: center;
   background-size: contain;
