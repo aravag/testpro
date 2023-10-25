@@ -21,7 +21,7 @@ function HelpPopup({ onClose }) {
                 </div>
                 <div className="closeHelp" onClick={handleCloseClick}>
                     <div className="closeHelpInner">
-                        <img src="/images/close.svg" alt="close" />
+                        <img src="./images/close.svg" alt="close" />
                     </div>
                 </div>
             </div>
