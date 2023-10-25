@@ -183,8 +183,16 @@ function Scene({ selectedCharacterIndex, preloadedImages }) {
             )}
             <div className="actions">
                 <div className="btnsWrapper" style={btnsWrapperStyle}>
-                    {showArrowUp && <div className="arrow arrowUp"></div>}
-                    {showArrowDown && <div className="arrow arrowDown"></div>}
+                    {showArrowUp && (
+                        <div className="arrow arrowUp">
+                            <div className="arrowInner arrowUpInner"></div>
+                        </div>
+                    )}
+                    {showArrowDown && (
+                        <div className="arrow arrowDown">
+                            <div className="arrowInner arrowDownInner"></div>
+                        </div>
+                    )}
                     {showButtonsContainer && textAnimationComplete && (
                         <div className={btnsContainerClass} style={{ opacity: buttonsContainerOpacity }} ref={buttonsContainerRef}>
                             {btns.map((btn, index) => (
