@@ -17,6 +17,20 @@
   --rowFlex-btns-width: max(3rem, min(12dvw, 7.5rem));
 }
 
+.helpPopupOverlay,
+.characters,
+.scene,
+.questWindow {
+  opacity: 0;
+  animation: opacity 0.3s forwards ease;
+}
+
+@keyframes opacity {
+  to {
+    opacity: 1;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
