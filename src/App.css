@@ -832,8 +832,10 @@ h1 {
   .title,
   .btnInner,
   .chooseCharInner,
-  .startSceneCloseInner {
-    font-size: min(max(3.5dvh, 0.75rem), 1rem);
+  .startSceneCloseInner,
+  .startSceneText,
+  .helpPopContent {
+    font-size: 0.75rem;
   }
 
   .questControls {
