@@ -149,7 +149,8 @@ h1 {
 .actions,
 .textInner,
 .btnsContainer,
-.preloader {
+.preloader,
+.startSceneText {
   -webkit-box-orient: vertical;
   -ms-flex-direction: column;
   -webkit-flex-direction: column;
@@ -186,7 +187,8 @@ h1 {
 .startSceneContainer,
 .helpPopup,
 .startSceneInner,
-.startSceneCloseInner {
+.startSceneCloseInner,
+.startSceneText {
   display: -webkit-box;
   display: -ms-flexbox;
   display: -webkit-flex;
@@ -509,6 +511,10 @@ h1 {
 .rotateText,
 .startSceneText {
   font-size: 1rem;
+}
+
+.startSceneText {
+  gap: 0.75rem;
 }
 
 .text {
