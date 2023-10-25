@@ -4,7 +4,7 @@ import Overlay from './Overlay';
 
 function Scene({ selectedCharacterIndex, preloadedImages }) {
     const currentScene = sceneConfigurations(preloadedImages);
-    const [sceneCounter, setSceneCounter] = useState(1);
+    const [sceneCounter, setSceneCounter] = useState(0);
     const [dialogCounter, setDialogCounter] = useState(0);
     const [textAnimationComplete, setTextAnimationComplete] = useState(false);
     const [showOverlay, setShowOverlay] = useState(false);
