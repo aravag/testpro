@@ -4,7 +4,7 @@ import Overlay from './Overlay';
 
 function Scene({ selectedCharacterIndex, preloadedImages }) {
     const currentScene = sceneConfigurations(preloadedImages);
-    const [sceneCounter, setSceneCounter] = useState(0);
+    const [sceneCounter, setSceneCounter] = useState(1);
     const [dialogCounter, setDialogCounter] = useState(0);
     const [textAnimationComplete, setTextAnimationComplete] = useState(false);
     const [showOverlay, setShowOverlay] = useState(false);
@@ -16,6 +16,7 @@ function Scene({ selectedCharacterIndex, preloadedImages }) {
     const buttonsContainerRef = useRef(null);
     const [showActionImage, setShowActionImage] = useState(false);
     const [actionImageOpacity, setActionImageOpacity] = useState(0);
+    const textElementRef = useRef(null);
 
     const currentDialogue = currentScene[sceneCounter].dialogues[dialogCounter];
     const { absBtn, rowFlexBtns, imgWidth, backgPoz, actionImage, text, hideChar, btns, title } = currentDialogue || {};
@@ -122,13 +123,15 @@ function Scene({ selectedCharacterIndex, preloadedImages }) {
 
             lines.forEach(line => {
                 line.split('').forEach(char => {
-                    const span = document.createElement('span');
-                    span.textContent = char;
-                    textElement.appendChild(span);
-                    spans.push(span);
+                    if (char === "\n") {
+                        textElement.appendChild(document.createElement('br'));
+                    } else {
+                        const span = document.createElement('span');
+                        span.textContent = char;
+                        textElement.appendChild(span);
+                        spans.push(span);
+                    }
                 });
-
-                textElement.appendChild(document.createElement('br'));
             });
 
             function type() {
@@ -137,9 +140,6 @@ function Scene({ selectedCharacterIndex, preloadedImages }) {
                     charIndex++;
                     setTimeout(type, speed);
                 } else {
-                    if (callback) {
-                        callback();
-                    }
                     setTextAnimationComplete(true);
                     fadeIn(setButtonsContainerOpacity, setShowButtonsContainer);
                     setTimeout(updateButtonsArrows, 10);
@@ -148,8 +148,7 @@ function Scene({ selectedCharacterIndex, preloadedImages }) {
 
             type();
         }
-
-        const textElement = document.querySelector('.text');
+        const textElement = textElementRef.current;
 
         if (textElement) {
             const textToAnimate = textToDisplay.replace(/<br>/g, '\n');
@@ -199,7 +198,7 @@ function Scene({ selectedCharacterIndex, preloadedImages }) {
                 <div className="textContainer">
                     <div className="textInner">
                         {title && <div className="title">{title}</div>}
-                        <div className="text"></div>
+                        <div className="text" ref={textElementRef}></div>
                     </div>
                 </div>
                 {actionImage && (
