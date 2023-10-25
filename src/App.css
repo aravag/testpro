@@ -790,7 +790,7 @@ h1 {
 
 .progress {
   width: 0px;
-  animation: progress 3s forwards ease-in-out;
+  /* animation: progress 3s forwards ease-in-out; */
   background: var(--linear-btn);
 }
 
