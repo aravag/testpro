@@ -340,7 +340,8 @@ h1 {
 .btn,
 .startQuest,
 .helpPopupOverlay,
-.startSceneClose {
+.startSceneClose,
+.arrow {
   cursor: pointer;
 }
 
@@ -547,6 +548,7 @@ h1 {
   overflow-y: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  scroll-behavior: smooth;
 }
 
 .btnsWrapper {
@@ -557,7 +559,6 @@ h1 {
 }
 
 .arrow {
-  pointer-events: none;
   z-index: 11;
   left: 50%;
   transform: translateX(-50%);

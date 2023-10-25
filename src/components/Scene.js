@@ -77,6 +77,18 @@ function Scene({ selectedCharacterIndex, preloadedImages }) {
         setShowArrowDown(false);
     };
 
+    function scrollUp() {
+        if (buttonsContainerRef.current) {
+            buttonsContainerRef.current.scrollTop = 0;
+        }
+    }
+
+    function scrollDown() {
+        if (buttonsContainerRef.current) {
+            buttonsContainerRef.current.scrollTop += buttonsContainerRef.current.scrollHeight;
+        }
+    }
+
     const nextScene = () => {
         if (sceneCounter < currentScene.length - 1) {
             fadeOut(setButtonsContainerOpacity, setShowButtonsContainer);
@@ -184,12 +196,12 @@ function Scene({ selectedCharacterIndex, preloadedImages }) {
             <div className="actions">
                 <div className="btnsWrapper" style={btnsWrapperStyle}>
                     {showArrowUp && (
-                        <div className="arrow arrowUp">
+                        <div className="arrow arrowUp" onClick={scrollUp}>
                             <div className="arrowInner arrowUpInner"></div>
                         </div>
                     )}
                     {showArrowDown && (
-                        <div className="arrow arrowDown">
+                        <div className="arrow arrowDown" onClick={scrollDown}>
                             <div className="arrowInner arrowDownInner"></div>
                         </div>
                     )}
